@@ -46,6 +46,9 @@ input {
     padding: 3px 20px 3px 0;
     border-radius: 71px;
 }
+.input-container{
+    position: relative;
+}
 
 .round {
     height: 33px;
@@ -57,4 +60,18 @@ input {
     font-size: 14px;
     padding: 15px 0 0 0;
     border-radius: 50px;
+}
+
+.cancel {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #C4C4C4;
+    color: #C4C4C4;
+    text-align: center;
+    padding: 1px 0 0;
+    border-radius: 50px;
+    position: absolute;
+    right: 35px;
+    bottom: 8px;
+
 }
