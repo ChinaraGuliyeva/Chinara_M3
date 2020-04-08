@@ -8,13 +8,14 @@ const addItemHandler = (event) =>{
     parent.appendChild(newLine);
 }
 
-let deleteButtons = document.querySelectorAll('.delete');
-console.log(deleteButtons);
+let deleteListener = document.querySelector('.parent-container');
+
 
 const removeItem = (event) => {
-    console.log(1);
+    console.log(event.target);
+    let deleteButtons=document.querySelectorAll('.delete');
+    console.log(deleteButtons);
 }
 
 button.addEventListener('click', addItemHandler);
-
-deleteButtons.forEach(element => element.addEventListener('click', removeItem));
+deleteListener.addEventListener('click', removeItem)
