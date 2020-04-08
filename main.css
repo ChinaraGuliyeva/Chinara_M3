@@ -4,7 +4,7 @@ body {
 
 .container{
     width: 336px;
-    height: 236px;
+    height: 245px;
     border: 1px solid lightgray;
     border-radius: 10px;
     margin: 232px auto;
@@ -20,15 +20,27 @@ h1 {
     text-align: center;
     font-size: 26px;
     line-height: 30px;
+    margin-bottom: 40px;
+}
+
+.sort-button{
+    position: relative;
 }
 
 .sort-arrow {
     width: 20px;
     color: #C4C4C4;
+    position: absolute;
+    top: -30px;
+    right: 40px
+}
+
+.sort-arrow:hover {
+    color: black;
 }
 
 .sort-arrow-up{
-    display: none;
+  display: none;
 }
 
 .sort-arrow-down{
@@ -42,6 +54,7 @@ input {
     border: 1px solid #C4C4C4;
     box-sizing: border-box;
     border-radius: 10px;
+    padding: 0 40px;
 }
 
 .add-button {
@@ -59,6 +72,7 @@ input {
     padding: 3px 20px 3px 0;
     border-radius: 71px;
 }
+
 .input-container{
     position: relative;
 }
@@ -75,3 +89,24 @@ input {
     border-radius: 50px;
 }
 
+.drag {
+    width: 20px;
+    color: #C4C4C4;
+    position: absolute;
+    left: 40px;
+    top: 10px;
+}
+
+.delete {
+   width: 20px;
+   color: #C4C4C4;
+   position: absolute;
+   top: 10px;
+   right: 40px;
+}
+
+/*.delete:hover {
+    border-radius: 50px;
+    background-color: #9953F1;
+    color: white;
+}*/
