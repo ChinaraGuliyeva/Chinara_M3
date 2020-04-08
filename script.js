@@ -12,9 +12,11 @@ let deleteListener = document.querySelector('.parent-container');
 
 
 const removeItem = (event) => {
-    console.log(event.target);
     let deleteButtons=document.querySelectorAll('.delete');
-    console.log(deleteButtons);
+    let element=event.target;
+    if(element.classList.contains("delete")){
+        element.parentNode.remove();
+    }
 }
 
 button.addEventListener('click', addItemHandler);
