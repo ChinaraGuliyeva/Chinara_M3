@@ -93,6 +93,10 @@ input {
     top: 10px;
 }
 
+.input-container.dragging{
+    opacity: 0.5;
+}
+
 .delete {
    width: 20px;
    color: #C4C4C4;
