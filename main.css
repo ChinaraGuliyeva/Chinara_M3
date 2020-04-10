@@ -52,6 +52,10 @@ input {
     padding: 0 40px;
 }
 
+input:hover{
+    background-color: #FFDC40;
+}
+
 .add-button {
     width: 129px;
     height: 42px;
@@ -103,6 +107,13 @@ input {
    position: absolute;
    top: 10px;
    right: 40px;
+}
+
+.delete:hover {
+    background-color: #9953F1;
+    color: #FFF;
+    mix-blend-mode: multiply;
+    border-radius: 50px;
 }
 
 /*.delete:hover {
