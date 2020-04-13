@@ -49,8 +49,7 @@ input {
     box-sizing: border-box;
     padding: 0 40px;
     border-radius: 10px;
-    opacity: 0;
-   }
+}
 
 .input-container:hover{
     background-color: #FFDC40;
