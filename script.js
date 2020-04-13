@@ -9,7 +9,6 @@ let deleteIcon = document.querySelector('.delete');
 const addItemHandler = (event) =>{
     let inputValue=document.querySelector('input');
     let newLine = inputContainer.cloneNode(true);
-    //console.log(newLine);
     let parent = document.querySelector('.parent-container');
     parent.appendChild(newLine);
 }
@@ -28,22 +27,12 @@ const sortUp = ()=> {
     arrowUp.style.display="none";
     arrowDown.style.display="block";
     const inputs = document.querySelectorAll('input');
-    let inputsArray = Array.from(inputs);
-    inputsArray.sort((a, b) => {return a.value-b.value})
-    let editedArray = [];
-    console.log(inputsArray);
-    for (let i=0; i<inputsArray.length; i++) {
-        let result = inputContainer.cloneNode(true);
-        console.log(result.childNodes)
-        //console.log(result.childNodes[3]);
-        result.appendChild(inputsArray[i]);
-        //console.log(result.childNodes[3]);
-        editedArray.push(result);
-    }
-    //problem with editedArray. Maybe add svg
-    //console.log(editedArray);
+    const inputContainers = document.querySelectorAll('.input-container');
+    console.dir(inputContainers);
+    let inputsArray = Array.from(inputContainers);
+    inputsArray.sort((a, b) => {return a.childNodes[3].value-b.childNodes[3].value})
     parentContainer.innerHTML="";
-    editedArray.forEach(element => {
+    inputsArray.forEach(element => {
         parentContainer.appendChild(element);
     });
 }
@@ -52,28 +41,19 @@ const sortDown = ()=> {
     arrowDown.style.display="none";
     arrowUp.style.display="block";
     const inputs = document.querySelectorAll('input');
-    let inputsArray = Array.from(inputs);
-    inputsArray.sort((a, b) => {return b.value-a.value})
-    let editedArray = [];
+    const inputContainers = document.querySelectorAll('.input-container');
+    console.dir(inputContainers[0].childNodes[3].value);
+    let inputsArray = Array.from(inputContainers);
+    inputsArray.sort((a, b) => {return b.childNodes[3].value-a.childNodes[3].value})
     console.log(inputsArray);
-    for (let i=0; i<inputsArray.length; i++) {
-        let result = inputContainer.cloneNode(true);
-        console.log(result.childNodes)
-        //console.log(result.childNodes[3]);
-        //console.log(result);
-        result.appendChild(inputsArray[i]);
-        //console.log(result.childNodes[3]);
-        editedArray.push(result);
-    }
     parentContainer.innerHTML="";
-    editedArray.forEach(element => {
+    inputsArray.forEach(element => {
         parentContainer.appendChild(element);
     });
 }
 
 let dragNdrop = () => {
     let draggables=document.querySelectorAll('.input-container');
-    //console.log(draggables);
     draggables.forEach(draggable => {
         draggable.addEventListener('dragstart', () => {
             draggable.classList.add('dragging');
@@ -85,7 +65,7 @@ let dragNdrop = () => {
 
     parentContainer.addEventListener('dragover', e => {
         e.preventDefault();
-        const afterElement = getDragAfterElement(parentContainer, e.clientY); 
+        const afterElement = getDragAfterElement(parentContainer, e.clientY);
         const draggable = document.querySelector('.dragging');
         if (afterElement==null) {
             parentContainer.appendChild(draggable);
@@ -101,7 +81,6 @@ let dragNdrop = () => {
         return draggableElements.reduce((closest, child)=> {
             const box = child.getBoundingClientRect();
             const offset = y - box.top - box.height / 2;
-            //console.log(offset);
             if (offset < 0 && offset >closest.offset) {
                 return { offset: offset, element: child}
             }
