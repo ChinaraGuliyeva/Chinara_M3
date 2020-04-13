@@ -16,21 +16,21 @@ const addItemHandler = (event) =>{
 const removeItem = (event) => {
     let element=event.target;
     let parent = element.parentNode;
-    if(element.classList.contains("delete") && parent.previousSibling){
+    if(element.classList.contains("delete")){
         console.log(parent);
-        console.log(parent.previousSibling);
         element.parentNode.remove();
     }
 }
 
 const sortUp = ()=> {
-    arrowUp.style.display="none";
     arrowDown.style.display="block";
+    arrowUp.style.display="none";
     const inputs = document.querySelectorAll('input');
     const inputContainers = document.querySelectorAll('.input-container');
-    console.dir(inputContainers);
+    console.dir(inputContainers[0].childNodes[3].value);
     let inputsArray = Array.from(inputContainers);
-    inputsArray.sort((a, b) => {return a.childNodes[3].value-b.childNodes[3].value})
+    inputsArray.sort((a, b) => {return b.childNodes[3].value-a.childNodes[3].value})
+    console.log(inputsArray);
     parentContainer.innerHTML="";
     inputsArray.forEach(element => {
         parentContainer.appendChild(element);
@@ -38,14 +38,13 @@ const sortUp = ()=> {
 }
 
 const sortDown = ()=> {
-    arrowDown.style.display="none";
     arrowUp.style.display="block";
+    arrowDown.style.display="none";
     const inputs = document.querySelectorAll('input');
     const inputContainers = document.querySelectorAll('.input-container');
-    console.dir(inputContainers[0].childNodes[3].value);
+    console.dir(inputContainers);
     let inputsArray = Array.from(inputContainers);
-    inputsArray.sort((a, b) => {return b.childNodes[3].value-a.childNodes[3].value})
-    console.log(inputsArray);
+    inputsArray.sort((a, b) => {return a.childNodes[3].value-b.childNodes[3].value})
     parentContainer.innerHTML="";
     inputsArray.forEach(element => {
         parentContainer.appendChild(element);
